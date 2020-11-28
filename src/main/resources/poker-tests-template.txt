@@ -1,0 +1,5 @@
+public function %s() {
+    $input = %s;
+    $this->assertEquals('%s', $evaluator->get($input));
+}
+
