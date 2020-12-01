@@ -6,7 +6,7 @@ public class CLI {
     public String getJsonFileNameInput() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Path to json: [poker-tests.json] ");
+        System.out.print("Path to json: [_tests.json] ");
         return scanner.nextLine();
     }
 

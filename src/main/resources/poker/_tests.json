@@ -1,10 +1,54 @@
 {
-  "php": "/Users/niklas/PhpstormProjects/poker/test/PokerTest/Model/PokerGame/AutoMathematicalHandEvaluatorTest.php",
-  "base-template": "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/poker-tests-base-template.php",
-  "test-templates": {
-    "default": "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/poker-tests-template.txt"
-  },
+  "use-config": 0,
+  "configs": [
+    {
+      "php": "/Users/niklas/PhpstormProjects/poker/test/PokerTest/Model/PokerGame/AutoMathematicalHandEvaluatorTest.php",
+      "base-template": "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/bt-mathematical-hand-evaluator.php",
+      "test-templates": {
+        "default": "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/tt-mathematical-hand-evaluator.txt"
+      }
+    },
+    {
+      "php": "/Users/niklas/PhpstormProjects/poker/test/PokerTest/Model/PokerGame/AutoCombinatorialHandCheckerTest.php",
+      "base-template": "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/bt-combinatorial-hand-checker.php",
+      "test-templates": {
+        "default": "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/tt-combinatorial-hand-checker.txt"
+      }
+    }
+  ],
   "tests": [
+    {
+      "name": "LowestStraight",
+      "input": [
+        "HEARTS/FIVE",
+        "DIAMONDS/TWO",
+        "DIAMONDS/THREE",
+        "SPADES/ACE",
+        "CLUBS/KING",
+        "SPADES/FOUR",
+        "CLUBS/ACE"
+      ],
+      "output": [
+        "300000001",
+        "STRAIGHT"
+      ]
+    },
+    {
+      "name": "StraightWithPair",
+      "input": [
+        "HEARTS/FIVE",
+        "DIAMONDS/TWO",
+        "DIAMONDS/THREE",
+        "SPADES/ACE",
+        "CLUBS/FOUR",
+        "SPADES/SIX",
+        "CLUBS/ACE"
+      ],
+      "output": [
+        "300000002",
+        "STRAIGHT"
+      ]
+    },
     {
       "name": "StdHighCard",
       "input": [

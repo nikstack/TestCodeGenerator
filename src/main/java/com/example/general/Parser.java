@@ -37,16 +37,23 @@ public abstract class Parser<I, O> {
 
         String jsonContent = Files.readString(Path.of(json));
         JSONObject jo = new JSONObject(jsonContent);
-
-        if (!(jo.has("php") && jo.has("base-template") && jo.has("test-templates"))) {
+        if (!(jo.has("use-config") && jo.has("configs")&& jo.has("tests"))) {
             reset();
             return false;
         }
 
-        this.php = jo.getString("php");
-        this.baseTemplate = Files.readString(Path.of(jo.getString("base-template")));
+        int configIndex = jo.getInt("use-config");
+        JSONObject config = jo.getJSONArray("configs").getJSONObject(configIndex);
 
-        JSONObject joTestTemplates = jo.getJSONObject("test-templates");
+        if (!(config.has("php") && config.has("base-template") && config.has("test-templates"))) {
+            reset();
+            return false;
+        }
+
+        this.php = config.getString("php");
+        this.baseTemplate = Files.readString(Path.of(config.getString("base-template")));
+
+        JSONObject joTestTemplates = config.getJSONObject("test-templates");
 
         for (String key : joTestTemplates.keySet()) {
             String templateContent = Files.readString(Path.of(joTestTemplates.getString(key)));

@@ -27,7 +27,7 @@ public class PokerController extends Controller<String[], String[]> {
 
     @Override
     protected String getDefaultJsonFilename() {
-        return "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/poker-tests.json";
+        return "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/_tests.json";
     }
 }
 

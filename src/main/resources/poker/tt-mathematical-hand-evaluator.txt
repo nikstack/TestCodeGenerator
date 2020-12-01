@@ -9,7 +9,8 @@ public function <name>()
         new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
         new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
     ]);
-    $this->assertEquals(<value>, $this->evaluator->evaluate($hand));
+    $this->evaluator->evaluate($hand);
+    $this->assertEquals(<value>, $hand->getValue());
     $this->assertEquals(HandType::$<type>, $hand->getType());
 }
 

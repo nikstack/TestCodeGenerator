@@ -42,7 +42,7 @@ public abstract class Controller<I, O> {
         }
         jsonFileName = cli.getJsonFileNameInput();
         if (jsonFileName.equals("")) {
-            jsonFileName = "poker-tests.json";
+            jsonFileName = "_tests.json";
         }
         return jsonFileName;
     }
