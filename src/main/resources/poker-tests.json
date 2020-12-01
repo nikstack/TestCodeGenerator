@@ -12,7 +12,7 @@
   "className": "AutoCombinatorialHandCheckerTest",
   "tests": [
     {
-      "name": "StdFullhouse",
+      "name": "StdFullHouse",
       "input": [
         "HEARTS/FIVE",
         "DIAMONDS/KING",
@@ -25,7 +25,7 @@
       "output": "FULL_HOUSE"
     },
     {
-      "name": "...",
+      "name": "Asdf",
       "input": [
         "HEARTS/FIVE",
         "DIAMONDS/KING",

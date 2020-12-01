@@ -1,5 +1,13 @@
-public function %s() {
-    $input = %s;
-    $this->assertEquals('%s', $evaluator->get($input));
+public function <name>() {
+    $hand = new Hand([
+                new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
+                new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
+                new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
+                new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
+                new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
+                new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
+                new PlayingCard(PlayingCardRank::$<rank>, PlayingCardSuit::$<suit>),
+            ]);
+    $this->assertEquals(HandType::$<output>, $this->checker->check($hand));
 }
 

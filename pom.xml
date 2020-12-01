@@ -22,7 +22,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.example.Main</mainClass>
+                            <mainClass>com.example.Generator</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
