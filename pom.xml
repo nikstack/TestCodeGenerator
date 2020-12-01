@@ -22,7 +22,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.example.Controller</mainClass>
+                            <mainClass>com.example.poker.PokerController</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

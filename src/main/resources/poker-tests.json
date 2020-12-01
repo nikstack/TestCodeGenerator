@@ -1,16 +1,106 @@
 {
-  "namespace": "PokerTest\\Model\\PokerGame",
-  "uses": [
-    "Poker\\Model\\Game\\Item\\Card\\PlayingCard",
-    "Poker\\Model\\Game\\Item\\Card\\PlayingCardRank",
-    "Poker\\Model\\Game\\Item\\Card\\PlayingCardSuit",
-    "Poker\\Model\\PokerGame\\CombinatorialHandChecker",
-    "PHPUnit\\Framework\\TestCase",
-    "Poker\\Model\\PokerGame\\Hand",
-    "Poker\\Model\\PokerGame\\HandType"
-  ],
-  "className": "AutoCombinatorialHandCheckerTest",
+  "php": "/Users/niklas/PhpstormProjects/poker/test/PokerTest/Model/PokerGame/AutoMathematicalHandEvaluatorTest.php",
+  "base-template": "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker-tests-base-template.php",
+  "test-templates": {
+    "default": "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker-tests-template.txt"
+  },
   "tests": [
+    {
+      "name": "StdHighCard",
+      "input": [
+        "HEARTS/FIVE",
+        "DIAMONDS/TWO",
+        "DIAMONDS/THREE",
+        "SPADES/JACK",
+        "CLUBS/QUEEN",
+        "SPADES/KING",
+        "CLUBS/TEN"
+      ],
+      "output": [
+        "13",
+        "HIGH_CARD"
+      ]
+    },
+    {
+      "name": "StdOnePair",
+      "input": [
+        "HEARTS/FOUR",
+        "DIAMONDS/KING",
+        "DIAMONDS/THREE",
+        "SPADES/NINE",
+        "CLUBS/ACE",
+        "SPADES/FOUR",
+        "CLUBS/QUEEN"
+      ],
+      "output": [
+        "194",
+        "ONE_PAIR"
+      ]
+    },
+    {
+      "name": "StdTwoPairs",
+      "input": [
+        "HEARTS/FIVE",
+        "DIAMONDS/KING",
+        "DIAMONDS/THREE",
+        "SPADES/FIVE",
+        "CLUBS/THREE",
+        "SPADES/KING",
+        "CLUBS/QUEEN"
+      ],
+      "output": [
+        "100005312",
+        "TWO_PAIRS"
+      ]
+    },
+    {
+      "name": "StdThree",
+      "input": [
+        "HEARTS/TWO",
+        "DIAMONDS/TEN",
+        "DIAMONDS/QUEEN",
+        "SPADES/TEN",
+        "CLUBS/TEN",
+        "SPADES/KING",
+        "CLUBS/NINE"
+      ],
+      "output": [
+        "200000213",
+        "THREE_OF_A_KIND"
+      ]
+    },
+    {
+      "name": "StdStraight",
+      "input": [
+        "HEARTS/FIVE",
+        "DIAMONDS/SEVEN",
+        "DIAMONDS/THREE",
+        "SPADES/FOUR",
+        "CLUBS/KING",
+        "SPADES/SIX",
+        "CLUBS/SIX"
+      ],
+      "output": [
+        "300000003",
+        "STRAIGHT"
+      ]
+    },
+    {
+      "name": "StdFlush",
+      "input": [
+        "SPADES/ACE",
+        "DIAMONDS/KING",
+        "SPADES/THREE",
+        "SPADES/FIVE",
+        "SPADES/QUEEN",
+        "SPADES/KING",
+        "CLUBS/QUEEN"
+      ],
+      "output": [
+        "402348903",
+        "FLUSH"
+      ]
+    },
     {
       "name": "StdFullHouse",
       "input": [
@@ -22,20 +112,58 @@
         "SPADES/KING",
         "CLUBS/QUEEN"
       ],
-      "output": "FULL_HOUSE"
+      "output": [
+        "500000265",
+        "FULL_HOUSE"
+      ]
     },
     {
-      "name": "Asdf",
+      "name": "StdFour",
       "input": [
-        "HEARTS/FIVE",
+        "HEARTS/JACK",
         "DIAMONDS/KING",
-        "DIAMONDS/THREE",
-        "SPADES/FIVE",
-        "CLUBS/KING",
+        "DIAMONDS/JACK",
+        "CLUBS/JACK",
+        "SPADES/KING",
+        "SPADES/JACK",
+        "CLUBS/KING"
+      ],
+      "output": [
+        "600000233",
+        "FOUR_OF_A_KIND"
+      ]
+    },
+    {
+      "name": "StdStraightFlush",
+      "input": [
+        "DIAMONDS/EIGHT",
+        "DIAMONDS/NINE",
+        "DIAMONDS/TEN",
+        "DIAMONDS/JACK",
+        "DIAMONDS/QUEEN",
         "SPADES/KING",
         "CLUBS/QUEEN"
       ],
-      "output": "FULL_HOUSE"
+      "output": [
+        "700000009",
+        "STRAIGHT_FLUSH"
+      ]
+    },
+    {
+      "name": "StdRoyalFlush",
+      "input": [
+        "HEARTS/ACE",
+        "HEARTS/KING",
+        "HEARTS/JACK",
+        "SPADES/ACE",
+        "HEARTS/TEN",
+        "HEARTS/QUEEN",
+        "CLUBS/QUEEN"
+      ],
+      "output": [
+        "700000010",
+        "ROYAL_FLUSH"
+      ]
     }
   ]
 }

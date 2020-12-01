@@ -1,6 +1,5 @@
 <?php
 
-
 namespace PokerTest\Model\PokerGame;
 
 
@@ -13,9 +12,15 @@ use Poker\Model\PokerGame\Hand;
 use Poker\Model\PokerGame\HandType;
 
 
-class AutoCombinatorialHandCheckerTest {
+class MathematicalHandEvaluatorTest {
+    private IHandEvaluator $evaluator;
 
-public function testStdFullHouse() {
+    public function setup()
+    {
+        $this->evaluator = new MathematicalHandEvaluator();
+    }
+
+    public function testStdFullHouse() {
     $hand = new Hand([
                 new PlayingCard(PlayingCardRank::$FIVE, PlayingCardSuit::$HEARTS),
                 new PlayingCard(PlayingCardRank::$KING, PlayingCardSuit::$DIAMONDS),
@@ -25,20 +30,22 @@ public function testStdFullHouse() {
                 new PlayingCard(PlayingCardRank::$KING, PlayingCardSuit::$SPADES),
                 new PlayingCard(PlayingCardRank::$QUEEN, PlayingCardSuit::$CLUBS),
             ]);
-    $this->assertEquals(HandType::$FULL_HOUSE, $this->checker->check($hand));
+    $this->assertNotEquals(0, $this->evaluator->evaluate($hand));
+    $this->assertNotEquals(HandType::$FULL_HOUSE, $hand->getType());
 }
 
 public function testAsdf() {
     $hand = new Hand([
                 new PlayingCard(PlayingCardRank::$FIVE, PlayingCardSuit::$HEARTS),
-                new PlayingCard(PlayingCardRank::$KING, PlayingCardSuit::$DIAMONDS),
+                new PlayingCard(PlayingCardRank::$KING, PlayingCardSuit::$SPADES),
                 new PlayingCard(PlayingCardRank::$THREE, PlayingCardSuit::$DIAMONDS),
                 new PlayingCard(PlayingCardRank::$FIVE, PlayingCardSuit::$SPADES),
                 new PlayingCard(PlayingCardRank::$KING, PlayingCardSuit::$CLUBS),
                 new PlayingCard(PlayingCardRank::$KING, PlayingCardSuit::$SPADES),
                 new PlayingCard(PlayingCardRank::$QUEEN, PlayingCardSuit::$CLUBS),
             ]);
-    $this->assertEquals(HandType::$FULL_HOUSE, $this->checker->check($hand));
+    $this->assertNotEquals(0, $this->evaluator->evaluate($hand));
+    $this->assertNotEquals(HandType::$FULL_HOUSE, $hand->getType());
 }
 
 
