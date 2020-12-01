@@ -15,13 +15,20 @@ public class PokerController extends Controller<String[], String[]> {
 
 
     @Override
-    public Parser<String[], String[]> getParser(String jsonFileName) {
+    protected Parser<String[], String[]> getParser(String jsonFileName) {
         return new PokerParser(jsonFileName);
     }
 
     @Override
-    public Generator<String[], String[]> getGenerator(
+    protected Generator<String[], String[]> getGenerator(
             ArrayList<Test<String[], String[]>> tests, String baseTemplate, HashMap<String, String> testTemplates) {
         return new PokerGenerator(tests, baseTemplate, testTemplates);
     }
+
+    @Override
+    protected String getDefaultJsonFilename() {
+        return "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker/poker-tests.json";
+    }
 }
+
+

@@ -13,11 +13,8 @@ public abstract class Controller<I, O> {
         SUCCESS, FILE_NOT_FOUND, WRONG_JSON_INPUT
     }
 
-    private final static String DEFAULT_JSON_FILENAME =
-            "/Users/niklas/IdeaProjects/TestCodeGenerator/src/main/resources/poker-tests.json";
-
     public Controller() {
-        String jsonFileName = loadInput();
+        String jsonFileName = getJsonFileName();
         Parser<I, O> parser = getParser(jsonFileName);
         try {
             if (!parser.parse()) {
@@ -38,22 +35,29 @@ public abstract class Controller<I, O> {
         showOutput(Message.SUCCESS);
     }
 
-    private String loadInput() {
-        /*String jsonFileName = cli.getJsonFileNameInput();
+    private String getJsonFileName() {
+        String jsonFileName = getDefaultJsonFilename();
+        if (!jsonFileName.equals("")) {
+            return jsonFileName;
+        }
+        jsonFileName = cli.getJsonFileNameInput();
         if (jsonFileName.equals("")) {
             jsonFileName = "poker-tests.json";
         }
-        return jsonFileName;*/
-        return DEFAULT_JSON_FILENAME;
+        return jsonFileName;
     }
 
     private void showOutput(Message msg) {
         cli.showMessage(msg);
     }
 
-    public abstract Parser<I, O> getParser(String jsonFileName);
+    protected String getDefaultJsonFilename() {
+        return "";
+    }
 
-    public abstract Generator<I, O> getGenerator(
+    protected abstract Parser<I, O> getParser(String jsonFileName);
+
+    protected abstract Generator<I, O> getGenerator(
             ArrayList<Test<I, O>> tests, String baseTemplate, HashMap<String, String> testTemplates);
 
 }
